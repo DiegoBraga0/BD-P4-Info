@@ -14,10 +14,10 @@ exports.up = function(knex) {
       table.string('nome').notNullable();
       table.string('email').notNullable().unique();
     })
-    .createTable('disciplinas', function(table) {
+    .createTable('tb_disciplinas', function(table) {
       table.increments('id').primary();
       table.string('nome').notNullable();
-      table.integer('professor_id').unsigned().references('id').inTable('professores');
+      table.integer('professor_id').unsigned().references('id').inTable('tb_professores');
     });
 };
 
@@ -28,6 +28,6 @@ exports.up = function(knex) {
 exports.down = function(knex) {
   return knex.schema
     .dropTableIfExists('tb_disciplinas')
-    .dropTableIfExists('alunos')
-    .dropTableIfExists('professores');
+    .dropTableIfExists('tb_alunos')
+    .dropTableIfExists('tb_professores');
 };
