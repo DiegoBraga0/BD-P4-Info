@@ -31,7 +31,7 @@ exports.seed = function(knex) {
     .then(function () {
       return knex('tb_professores').del()
         .then(function () {
-          return knex('professores').insert([
+          return knex('tb_professores').insert([
             { nome: 'Carlos', email: 'carlos@example.com' },
             { nome: 'Ana', email: 'ana@example.com' },
           ]);
